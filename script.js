@@ -3,8 +3,7 @@ let radioBtns = ratingState.querySelectorAll('input[name="rating"]');
 let btnSubmit = ratingState.querySelector("#submit");
 let thankYouState = document.querySelector(".thank-you-state");
 let rating = thankYouState.querySelector("#rating");
-
-rating.textContent = 5;
+let form = ratingState.querySelector("form");
 
 radioBtns.forEach((element) => {
   element.addEventListener("change", (event) => {
@@ -12,9 +11,8 @@ radioBtns.forEach((element) => {
   });
 });
 
-btnSubmit.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   ratingState.style.display = "none";
   thankYouState.style.display = "block";
-  console.log("clicked");
 });
