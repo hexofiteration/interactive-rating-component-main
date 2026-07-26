@@ -13,7 +13,7 @@
     />
 
     <title>Frontend Mentor | Interactive rating component</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
@@ -57,7 +57,7 @@
             <label for="rating4">4</label>
           </div>
           <div class="form-group">
-            <input type="radio" name="rating" id="rating5" value="5" />
+            <input type="radio" name="rating" id="rating5" value="5" checked />
             <label for="rating5">5</label>
           </div>
           <input type="submit" value="Submit" id="submit" />
@@ -68,7 +68,7 @@
 
       <!-- Thank you state start -->
       <section class="thank-you-state">
-        <p class="pill">You selected <span id="rating">4</span>out of 5</p>
+        <p class="pill">You selected <span id="rating"></span> out of 5</p>
 
         <!-- Add rating here -->
         <h1>Thank you!</h1>
