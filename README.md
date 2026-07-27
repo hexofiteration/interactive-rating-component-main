@@ -66,10 +66,33 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
-To see how you can add code snippets, see below:
+- Identified that a 1-5 rating is a "pick exactly one" scenario, which is exactly why i used <input type="radio">
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<input type="radio" name="rating" id="rating1" value="1" />
+<label for="rating1">1</label>
+```
+
+- Instead of attaching separate click and keydown listeners, I learned that change fires no matter how the value changed (mouse, keyboard, etc.) — one listener covers it all.
+
+```js
+radioBtns.forEach((element) => {
+  element.addEventListener("change", (event) => {
+    rating.textContent = event.target.value;
+  });
+});
+```
+
+- Listening for click on the submit button bypasses the browser's native required validation entirely, since click doesn't care about form validity. Switching to submit on the <form> element means the browser blocks the event (and runs validation) before the code executes.
+
+```js
+let form = ratingState.querySelector("form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  ratingState.style.display = "none";
+  thankYouState.style.display = "block";
+});
 ```
 
 ```css
